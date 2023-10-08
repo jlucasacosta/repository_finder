@@ -3,7 +3,7 @@
     width: 100%;
     display: flex;
     justify-content: end;
-    gap: 1rem;
+    gap: .2rem;
 }
 
 .nav a { 

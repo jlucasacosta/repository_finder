@@ -3,7 +3,7 @@ import Repo from "./Repo";
 import style from "./showData.module.css";
 import { useAppContext } from "../../context/AppContext";
 
-const ShowData = ({ isLoading, isStarred, setIsStarred }) => {
+const ShowData = ({ isLoading  }) => {
   const { repos } = useAppContext();
 
   return (
@@ -18,7 +18,7 @@ const ShowData = ({ isLoading, isStarred, setIsStarred }) => {
             <div className={style.skeleton}></div>
           </div>
         ) : (
-          <Repo isStarred={isStarred} setIsStarred={setIsStarred} />
+          <Repo />
         ))}
     </div>
   );

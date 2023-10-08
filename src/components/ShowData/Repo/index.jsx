@@ -4,13 +4,23 @@ import { useAppContext } from "../../../context/AppContext";
 import { FaArrowRightLong, FaStar, FaRegStar } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-const Repo = ({ isStarred, setIsStarred }) => {
-  const {setRepoUrl, repos } = useAppContext()
+const Repo = () => {
+  const {
+    setRepoUrl,
+    repos,
+    setStarredRepo,
+    starredRepo,
+    setStarredRepos,
+    starredRepos,
+    handleStarredRepo
+  } = useAppContext();
+
+  
 
   return (
     <div className={style.reposContainer}>
       {repos.map((repo) => (
-        <div key={repo.name} className={style.repoContainer}>
+        <div key={repo.id} className={style.repoContainer}>
           <div className={style.repoContent}>
             <div className={style.repoInfoContainer}>
               <img
@@ -33,24 +43,20 @@ const Repo = ({ isStarred, setIsStarred }) => {
             <button
               className={`${style.button} ${style.buttonStar}`}
               onClick={() => {
-                if (isStarred === false) {
-                  setIsStarred(true);
-                } else if (isStarred === true) {
-                  setIsStarred(false);
-                }
+                handleStarredRepo(repo);
               }}
             >
-              {isStarred === true ? (
-                <FaRegStar className={style.buttonIcon} />
-              ) : (
+              {starredRepos.some((r) => r.id === repo.id) ? (
                 <FaStar className={style.buttonIcon} />
+              ) : (
+                <FaRegStar className={style.buttonIcon} />
               )}
             </button>
             <Link
               to={`/profile?name=${repo.owner.login}`}
               className={`${style.button} ${style.buttonLink}`}
               onClick={() => {
-                setRepoUrl(repo.url)
+                setRepoUrl(repo.url);
               }}
             >
               <FaArrowRightLong className={style.buttonIcon} />

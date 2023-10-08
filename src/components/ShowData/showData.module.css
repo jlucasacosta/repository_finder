@@ -1,5 +1,6 @@
 .showDataContainer { 
   width: 100%;
+  display: flex;
 }
 
 .skeletonContainer {

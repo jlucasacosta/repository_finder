@@ -1,17 +1,18 @@
 .homeContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
   max-width: 1024px;
   width: 100%;
   margin: 0 auto;
   padding: 1.5rem;
   height: 100vh;
   position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
-.homeContainer section { 
+.homeContainer section {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -26,7 +27,7 @@
   gap: 0.5rem;
 }
 
-.title { 
+.title {
   width: 100%;
   display: flex;
   align-items: center;
@@ -45,7 +46,7 @@
   padding: 0;
 }
 
-.reposContainer { 
+.reposContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,9 +60,9 @@
 .homeFeaturedRepositories {
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
-.homeFeaturedRepositoriesTitle { 
-  color: #6C72A5;
+.homeFeaturedRepositoriesTitle {
+  color: #6c72a5;
 }

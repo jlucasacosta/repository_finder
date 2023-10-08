@@ -1,8 +1,8 @@
 import React from "react";
 import { FaLink } from "react-icons/fa6";
-import style from './repoSelected.module.css'
+import style from "./repoSelected.module.css";
 
-const RepoSelected = ({repo}) => {
+const RepoSelected = ({ repo }) => {
   return (
     <div>
       {repo && (
@@ -24,8 +24,10 @@ const RepoSelected = ({repo}) => {
               </a>
             </span>
             <div className={style.repoTopicContainer}>
-              {repo.topics.map((topic) => (
-                <span key={topic} className={style.repoTopic}>{topic}</span>
+              {repo.topics.slice(0, 10).map((topic) => (
+                <span key={topic} className={style.repoTopic}>
+                  {topic}
+                </span>
               ))}
             </div>
           </div>

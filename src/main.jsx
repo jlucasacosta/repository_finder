@@ -5,6 +5,7 @@ import { AppProvider } from "./context/AppContext";
 import Home from "./pages/Home.jsx";
 import Profile from "./pages/Profile.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
+import Starred from "./pages/Starred";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
     path: "/profile/:id",
     element: <Profile />,
   },
+  { path: "/starred", element: <Starred /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

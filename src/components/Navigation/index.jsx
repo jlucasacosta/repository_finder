@@ -6,6 +6,7 @@ const Navigation = () => {
   return (
     <nav className={style.nav}>
         <Link to={"/"}>Home</Link>
+        <Link to={"/starred"}>Starred</Link>
     </nav>
   )
 }
