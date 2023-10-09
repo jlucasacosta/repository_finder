@@ -1,55 +1,23 @@
-import React, {useState} from "react";
-import style from "./repo.module.css";
-import { useAppContext } from "../../../context/AppContext";
+import React from "react";
+import { useAppContext } from "../../context/AppContext";
 import { FaArrowRightLong, FaStar, FaRegStar } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import style from "./../ShowData/Repo/repo.module.css";
 
-const Repo = () => {
+const StarredRepositories = () => {
   const {
     setRepoUrl,
     repos,
-    setRepos,
+    setStarredRepo,
+    starredRepo,
+    setStarredRepos,
     starredRepos,
     handleStarredRepo,
   } = useAppContext();
-  const [selectDefault, setSelectDefault] = useState(true);
-
-  const highToLow = () => {
-    const highToLowRepos = [...repos];
-    highToLowRepos.sort((a, b) => b.stargazers_count - a.stargazers_count);
-    setRepos(highToLowRepos);
-  };
-
-  const lowToHigh = () => {
-    const lowToHighRepos = [...repos];
-    lowToHighRepos.sort((a, b) => a.stargazers_count - b.stargazers_count);
-    setRepos(lowToHighRepos);
-  };
-
-  const orderReposStars = (e) => {
-    const select = e.target.value;
-    setSelectDefault(false)
-
-    if (select === "highToLow") {
-      highToLow();
-    } else if (select === "lowToHigh") {
-      lowToHigh();
-    }
-  };
 
   return (
     <div className={style.reposContainer}>
-      {repos.length > 1 ? (
-        <div className={style.ordenedRepos}>
-          <span>Ordened by stars: </span>
-          <select name="stars" onChange={orderReposStars}>
-            {selectDefault ? <option value="default">Default</option> : null}
-            <option value="highToLow">High to Low</option>
-            <option value="lowToHigh">Low to High</option>
-          </select>
-        </div>
-      ) : null}
-      {repos.map((repo) => (
+      {starredRepos.map((repo) => (
         <div key={repo.id} className={style.repoContainer}>
           <div className={style.repoContent}>
             <div className={style.repoInfoContainer}>
@@ -98,4 +66,4 @@ const Repo = () => {
   );
 };
 
-export default Repo;
+export default StarredRepositories;

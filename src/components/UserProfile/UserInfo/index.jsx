@@ -17,7 +17,7 @@ const UserInfo = ({ user }) => {
               <span className={style.userName}>{user.name}</span>
               <h2 className={style.userLogin}>
                 {user.login}
-                <a href={user.html_url}>
+                <a href={user.html_url} target="_blank">
                   <FaLink />
                 </a>
               </h2>

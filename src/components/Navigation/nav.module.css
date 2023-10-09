@@ -2,7 +2,7 @@
     max-width: 100%;
     width: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     gap: .2rem;
 }
 
@@ -14,4 +14,21 @@
 
 .nav a:hover { 
     text-decoration: underline;
+}
+
+.goBack { 
+    color: black;
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform .125s ease-in-out;
+}
+
+.goBack:hover { 
+    transform: scale(105%);
+}
+
+.menu { 
+    display: flex;
 }

@@ -3,7 +3,7 @@ import Repo from "./Repo";
 import style from "./showData.module.css";
 import { useAppContext } from "../../context/AppContext";
 
-const ShowData = ({ isLoading  }) => {
+const ShowData = ({ isLoading }) => {
   const { repos } = useAppContext();
 
   return (

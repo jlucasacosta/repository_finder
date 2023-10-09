@@ -45,7 +45,7 @@
 .repoLink {
   width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
 }
 
 .repoLink a {
@@ -56,6 +56,20 @@
 }
 
 .repoLink a:hover {
+  transform: scale(105%);
+}
+
+.buttonStar { 
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+  transition: transform 0.125s ease-in-out;
+  cursor: pointer;
+}
+
+.buttonStar:hover { 
   transform: scale(105%);
 }
 

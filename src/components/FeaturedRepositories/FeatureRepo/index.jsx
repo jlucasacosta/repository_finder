@@ -21,7 +21,7 @@ const FeatureRepo = ({
           <span>stars</span>
           <h2>{repositoryStars}</h2>
         </div>
-        <a href={repositoryUrl}>
+        <a href={repositoryUrl} target="_blank">
           <FaArrowRightLong />
         </a>
       </footer>

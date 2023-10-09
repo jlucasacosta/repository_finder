@@ -1,8 +1,11 @@
 import React from "react";
-import { FaLink } from "react-icons/fa6";
+import { FaLink, FaRegStar, FaStar } from "react-icons/fa6";
+import { useAppContext } from "../../../context/AppContext";
 import style from "./repoSelected.module.css";
 
 const RepoSelected = ({ repo }) => {
+  const { starredRepos, handleStarredRepo } = useAppContext();
+
   return (
     <div>
       {repo && (
@@ -19,7 +22,19 @@ const RepoSelected = ({ repo }) => {
           </div>
           <div className={style.anotherRepoInfo}>
             <span className={style.repoLink}>
-              <a href={repo.html_url}>
+              <button
+                className={`${style.button} ${style.buttonStar}`}
+                onClick={() => {
+                  handleStarredRepo(repo);
+                }}
+              >
+                {starredRepos.some((r) => r.id === repo.id) ? (
+                  <FaStar className={style.buttonIcon} />
+                ) : (
+                  <FaRegStar className={style.buttonIcon} />
+                )}
+              </button>
+              <a href={repo.html_url} target="_blank">
                 <FaLink />
               </a>
             </span>

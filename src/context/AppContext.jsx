@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 const AppContext = createContext();
 
@@ -7,14 +7,18 @@ export function useAppContext() {
 }
 
 export function AppProvider({ children }) {
-  const [userUrl, setUserUrl] = useState('');
+  const [userUrl, setUserUrl] = useState("");
   const [repos, setRepos] = useState([]);
   const [repoUrl, setRepoUrl] = useState([]);
   const [starredRepos, setStarredRepos] = useState([]);
   const [starredRepo, setStarredRepo] = useState(false);
+  const [url, setUrl] = useState("");
+  
 
   useEffect(() => {
-    const storedStarredRepos = JSON.parse(localStorage.getItem("starredRepos") || "[]");
+    const storedStarredRepos = JSON.parse(
+      localStorage.getItem("starredRepos") || "[]"
+    );
     setStarredRepos(storedStarredRepos);
   }, []);
 
@@ -36,7 +40,23 @@ export function AppProvider({ children }) {
   };
 
   return (
-    <AppContext.Provider value={{ userUrl, setUserUrl, repos, setRepos, repoUrl, setRepoUrl, starredRepos, setStarredRepos, starredRepo, setStarredRepo, handleStarredRepo }}>
+    <AppContext.Provider
+      value={{
+        userUrl,
+        setUserUrl,
+        repos,
+        setRepos,
+        repoUrl,
+        setRepoUrl,
+        starredRepos,
+        setStarredRepos,
+        starredRepo,
+        setStarredRepo,
+        handleStarredRepo,
+        url,
+        setUrl,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

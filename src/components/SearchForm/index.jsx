@@ -4,7 +4,9 @@ import { useAppContext } from "../../context/AppContext";
 
 const SearchForm = ({ setIsLoading, setFeaturedRepositories }) => {
   const [search, setSearch] = useState("");
-  const { setRepos } = useAppContext()
+  const { setRepos, setUrl } = useAppContext()
+
+  
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -12,6 +14,8 @@ const SearchForm = ({ setIsLoading, setFeaturedRepositories }) => {
     const input = form.get("search");
     setSearch(input);
     setFeaturedRepositories(false);
+    const currentUrl = window.location.href
+    setUrl(`${currentUrl}?search=${input}`)
   };
 
   useEffect(() => {
@@ -28,6 +32,7 @@ const SearchForm = ({ setIsLoading, setFeaturedRepositories }) => {
       setRepos([]);
     }
   }, [search]);
+
 
   return (
     <form action="" onSubmit={handleSearch} className={style.form}>
