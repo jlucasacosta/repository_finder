@@ -19,7 +19,7 @@ const ShowData = ({ isLoading }) => {
           </div>
         ) : foundData === true ? (
           <div className={style.notFound}>
-            <span>No repositories found</span>
+            <span>Repositories not found</span>
           </div>
         ) : (
           <Repo />
