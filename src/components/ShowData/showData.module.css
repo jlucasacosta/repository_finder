@@ -1,6 +1,5 @@
 .showDataContainer { 
   width: 100%;
-  display: flex;
 }
 
 .skeletonContainer {
@@ -16,11 +15,7 @@
   border-radius: 25px;
 }
 
-@keyframes isLoading {
-    0% {
-        background-position: 200% 0;
-    }
-    100% {
-        background-position: -200% 0;
-    }
+.notFound { 
+  width: 100%;
+  text-align: center;
 }

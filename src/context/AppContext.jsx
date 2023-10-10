@@ -12,7 +12,8 @@ export function AppProvider({ children }) {
   const [repoUrl, setRepoUrl] = useState([]);
   const [starredRepos, setStarredRepos] = useState([]);
   const [starredRepo, setStarredRepo] = useState(false);
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState("")
+  const [foundData, setFoundData] = useState(false)
   
 
   useEffect(() => {
@@ -55,6 +56,8 @@ export function AppProvider({ children }) {
         handleStarredRepo,
         url,
         setUrl,
+        foundData,
+        setFoundData
       }}
     >
       {children}

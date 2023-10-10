@@ -4,9 +4,7 @@ import { useAppContext } from "../../context/AppContext";
 
 const SearchForm = ({ setIsLoading, setFeaturedRepositories }) => {
   const [search, setSearch] = useState("");
-  const { setRepos, setUrl } = useAppContext()
-
-  
+  const { setRepos, setUrl, setFoundData } = useAppContext();
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -14,8 +12,8 @@ const SearchForm = ({ setIsLoading, setFeaturedRepositories }) => {
     const input = form.get("search");
     setSearch(input);
     setFeaturedRepositories(false);
-    const currentUrl = window.location.href
-    setUrl(`${currentUrl}?search=${input}`)
+    const currentUrl = window.location.href;
+    setUrl(`${currentUrl}?search=${input}`);
   };
 
   useEffect(() => {
@@ -24,15 +22,22 @@ const SearchForm = ({ setIsLoading, setFeaturedRepositories }) => {
       fetch(`https://api.github.com/search/repositories?q=${search}`)
         .then((res) => res.json())
         .then((data) => {
-          setRepos(data.items), setIsLoading(false); 
+          if (!data || data.items.length === 0) {
+            setRepos([]);
+            setIsLoading(false);
+            setFoundData(true);
+          } else {
+            setRepos(data.items);
+            setIsLoading(false);
+            setFoundData(false);
+          }
         });
     } else if (search.length === 0) {
-      setFeaturedRepositories(true)
+      setFeaturedRepositories(true);
       setIsLoading(false);
       setRepos([]);
     }
   }, [search]);
-
 
   return (
     <form action="" onSubmit={handleSearch} className={style.form}>

@@ -13,7 +13,7 @@ const Home = () => {
 
   return (
     <main className={style.homeContainer}>
-      <section>
+      <section className={style.homeContent}>
         <nav>
           <Navigation />
         </nav>
