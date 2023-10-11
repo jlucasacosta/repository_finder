@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import style from "./searchForm.module.css";
 import { useAppContext } from "../../context/AppContext";
 
-const SearchForm = ({ setIsLoading, setFeaturedRepositories }) => {
-  const [search, setSearch] = useState("");
-  const { setRepos, setUrl, setFoundData } = useAppContext();
+const SearchForm = ({ setIsLoading }) => {
+  const { setRepos, setFoundData, search, setSearch, setFeaturedRepositories } = useAppContext();
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -12,8 +11,6 @@ const SearchForm = ({ setIsLoading, setFeaturedRepositories }) => {
     const input = form.get("search");
     setSearch(input);
     setFeaturedRepositories(false);
-    const currentUrl = window.location.href;
-    setUrl(`${currentUrl}?search=${input}`);
   };
 
   useEffect(() => {

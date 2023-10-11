@@ -3,13 +3,14 @@ import Navigation from "../components/Navigation";
 import SearchForm from "../components/SearchForm";
 import ShowData from "../components/ShowData";
 import FeaturedRepositories from "../components/FeaturedRepositories";
+import { useAppContext } from "../context/AppContext";
 import style from "../styles/home.module.css";
 import "../styles/global.css";
 
 const Home = () => {
   const [isStarred, setIsStarred] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [featuredRepositories, setFeaturedRepositories] = useState(true);
+  const { featuredRepositories } = useAppContext();
 
   return (
     <main className={style.homeContainer}>
@@ -19,11 +20,10 @@ const Home = () => {
         </nav>
         <article className={style.form}>
           <div className={style.title}>
-            <h1>Github repositories finder</h1>
+            <h1>GitHub repositories finder</h1>
           </div>
           <SearchForm
             setIsLoading={setIsLoading}
-            setFeaturedRepositories={setFeaturedRepositories}
           />
         </article>
         <article className={style.reposContainer}>

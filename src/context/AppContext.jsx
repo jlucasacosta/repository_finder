@@ -12,9 +12,9 @@ export function AppProvider({ children }) {
   const [repoUrl, setRepoUrl] = useState([]);
   const [starredRepos, setStarredRepos] = useState([]);
   const [starredRepo, setStarredRepo] = useState(false);
-  const [url, setUrl] = useState("")
-  const [foundData, setFoundData] = useState(false)
-  
+  const [foundData, setFoundData] = useState(false);
+  const [search, setSearch] = useState("");
+  const [featuredRepositories, setFeaturedRepositories] = useState(true);
 
   useEffect(() => {
     const storedStarredRepos = JSON.parse(
@@ -22,6 +22,10 @@ export function AppProvider({ children }) {
     );
     setStarredRepos(storedStarredRepos);
   }, []);
+
+  const handleDeleteSearch = () => {
+    setSearch('');
+  };
 
   const handleStarredRepo = (repo) => {
     const repoIndex = starredRepos.findIndex((r) => r.id === repo.id);
@@ -54,10 +58,13 @@ export function AppProvider({ children }) {
         starredRepo,
         setStarredRepo,
         handleStarredRepo,
-        url,
-        setUrl,
         foundData,
-        setFoundData
+        setFoundData,
+        search,
+        setSearch,
+        handleDeleteSearch,
+        featuredRepositories,
+        setFeaturedRepositories
       }}
     >
       {children}

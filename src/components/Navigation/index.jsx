@@ -1,13 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaArrowLeftLong } from "react-icons/fa6";
+import { useAppContext } from "../../context/AppContext";
 import style from "./nav.module.css";
 
 const Navigation = () => {
+
+  const { featuredRepositories } = useAppContext()
+
   return (
     <nav className={style.nav}>
-        <Link to={"/"}>Home</Link>
-        <Link to={"/starred"}>Starred</Link>
+      <Link onClick={() => {
+        featuredRepositories(true)
+      }} to={"/"}>Home</Link>
+      <Link to={"/starred"}>Starred</Link>
     </nav>
   );
 };
