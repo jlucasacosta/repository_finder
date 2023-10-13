@@ -1,6 +1,6 @@
 import React from 'react'
 import FeatureRepo from "../../FeaturedRepositories/FeatureRepo";
-import style from './FeaturedRepositoriesUser.module.css'
+import style from '../FeaturedRepositoriesUser/featuredRepositoriesUser.module.css'
 
 
 const FeaturedRepositoriesUser = ({repos}) => {
