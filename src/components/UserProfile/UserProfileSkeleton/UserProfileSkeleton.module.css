@@ -1,0 +1,293 @@
+.container {
+  max-width: 1024px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 5rem;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.userInfoContainer {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.image {
+  height: 250px;
+  width: 250px;
+  border-radius: 100%;
+  background: linear-gradient(145deg, #dcdcdc 0%, #a8a8a8 100%);
+  background-size: 200% 100%;
+  animation: moveBackground 2s linear infinite;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 250px;
+}
+
+.principalInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.realName {
+  width: 100px;
+  height: 15px;
+  border-radius: 100px;
+  background: linear-gradient(145deg, #dcdcdc 0%, #a8a8a8 100%);
+  background-size: 200% 100%;
+  animation: moveBackground 2s linear infinite;
+}
+
+.loginName {
+  width: 150px;
+  height: 20px;
+  border-radius: 100px;
+  background: linear-gradient(145deg, #dcdcdc 0%, #a8a8a8 100%);
+  background-size: 200% 100%;
+  animation: moveBackground 2s linear infinite;
+}
+
+.bio {
+  width: 400px;
+  height: 15px;
+  border-radius: 100px;
+  background: linear-gradient(145deg, #dcdcdc 0%, #a8a8a8 100%);
+  background-size: 200% 100%;
+  animation: moveBackground 2s linear infinite;
+}
+
+.location {
+  width: 125px;
+  height: 15px;
+  margin-top: 10px;
+  border-radius: 100px;
+  background: linear-gradient(145deg, #dcdcdc 0%, #a8a8a8 100%);
+  background-size: 200% 100%;
+  animation: moveBackground 2s linear infinite;
+}
+
+.followersWord {
+  width: 100px;
+  height: 15px;
+  border-radius: 100px;
+  background: linear-gradient(145deg, #dcdcdc 0%, #a8a8a8 100%);
+  background-size: 200% 100%;
+  animation: moveBackground 2s linear infinite;
+}
+
+.followersNumber {
+  width: 175px;
+  height: 25px;
+  border-radius: 100px;
+  background: linear-gradient(145deg, #dcdcdc 0%, #a8a8a8 100%);
+  background-size: 200% 100%;
+  animation: moveBackground 2s linear infinite;
+  margin-top: 5px;
+}
+
+.repoSelectedContainer {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  border: 2px solid #a8a8a8;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.repoInfoContainer {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1rem;
+}
+
+.repoName {
+  width: 150px;
+  height: 20px;
+  border-radius: 100px;
+  background: linear-gradient(145deg, #dcdcdc 0%, #a8a8a8 100%);
+  background-size: 200% 100%;
+  animation: moveBackground 2s linear infinite;
+}
+
+.repoBio {
+  width: 400px;
+  height: 15px;
+  border-radius: 100px;
+  background: linear-gradient(145deg, #dcdcdc 0%, #a8a8a8 100%);
+  background-size: 200% 100%;
+  animation: moveBackground 2s linear infinite;
+  margin-top: 5px;
+}
+
+.repoStarsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.starsWord {
+  width: 75px;
+  height: 15px;
+  border-radius: 100px;
+  background: linear-gradient(145deg, #dcdcdc 0%, #a8a8a8 100%);
+  background-size: 200% 100%;
+  animation: moveBackground 2s linear infinite;
+}
+
+.starsNumber {
+  width: 175px;
+  height: 25px;
+  border-radius: 100px;
+  background: linear-gradient(145deg, #dcdcdc 0%, #a8a8a8 100%);
+  background-size: 200% 100%;
+  animation: moveBackground 2s linear infinite;
+  margin-top: 5px;
+}
+
+.anotherInfoContainer {
+  width: 30%;
+  height: 100%;
+  border-left: 2px solid #a8a8a8;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.icon {
+  width: 35px;
+  height: 25px;
+  border-radius: 100px;
+  background: linear-gradient(145deg, #dcdcdc 0%, #a8a8a8 100%);
+  background-size: 200% 100%;
+  animation: moveBackground 2s linear infinite;
+}
+
+.topic {
+  width: 100%;
+  height: 25px;
+  border-radius: 100px;
+  background: linear-gradient(145deg, #dcdcdc 0%, #a8a8a8 100%);
+  background-size: 200% 100%;
+  animation: moveBackground 2s linear infinite;
+}
+
+.featuredRepositoriesContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.subtitle {
+  width: 300px;
+  height: 40px;
+  border-radius: 100px;
+  background: linear-gradient(145deg, #dcdcdc 0%, #a8a8a8 100%);
+  background-size: 200% 100%;
+  animation: moveBackground 2s linear infinite;
+}
+
+.featuredReposContainer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.featuredRepoContainer {
+  width: 250px;
+  height: 250px;
+  border: 2px solid #a8a8a8;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.featuredRepoInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.creatorNameRepo {
+  width: 50px;
+  height: 15px;
+  border-radius: 100px;
+  background: linear-gradient(145deg, #dcdcdc 0%, #a8a8a8 100%);
+  background-size: 200% 100%;
+  animation: moveBackground 2s linear infinite;
+}
+
+.titleRepo {
+  width: 75px;
+  height: 20px;
+  border-radius: 100px;
+  background: linear-gradient(145deg, #dcdcdc 0%, #a8a8a8 100%);
+  background-size: 200% 100%;
+  animation: moveBackground 2s linear infinite;
+}
+
+.bioRepo {
+  width: 150px;
+  height: 15px;
+  border-radius: 100px;
+  background: linear-gradient(145deg, #dcdcdc 0%, #a8a8a8 100%);
+  background-size: 200% 100%;
+  animation: moveBackground 2s linear infinite;
+}
+
+.anotherInfoRepo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.repoStars {
+  width: 55px;
+  height: 25px;
+  border-radius: 100px;
+  background: linear-gradient(145deg, #dcdcdc 0%, #a8a8a8 100%);
+  background-size: 200% 100%;
+  animation: moveBackground 2s linear infinite;
+}
+
+.repoLink { 
+  width: 35px;
+  height: 25px;
+  border-radius: 100px;
+  background: linear-gradient(145deg, #dcdcdc 0%, #a8a8a8 100%);
+  background-size: 200% 100%;
+  animation: moveBackground 2s linear infinite;
+} 

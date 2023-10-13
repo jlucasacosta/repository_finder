@@ -1,10 +1,23 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Repo from "./Repo";
 import style from "./showData.module.css";
 import { useAppContext } from "../../context/AppContext";
 
-const ShowData = ({ isLoading }) => {
-  const { repos, foundData, search } = useAppContext();
+const ShowData = () => {
+  const {
+    repos,
+    foundData,
+    setFoundData,
+    search,
+    isLoading,
+    featuredRepositories,
+  } = useAppContext();
+
+  useEffect(() => {
+    if (featuredRepositories === true) {
+      setFoundData(false);
+    }
+  }, [featuredRepositories, setFoundData]);
 
   return (
     <div className={style.showDataContainer}>

@@ -6,13 +6,7 @@ import StarredRepositories from "../components/StarredRepositories";
 
 const Starred = () => {
   const {
-    setRepoUrl,
-    repos,
-    setStarredRepo,
-    starredRepo,
-    setStarredRepos,
     starredRepos,
-    handleStarredRepo,
   } = useAppContext();
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Navigation from "../components/Navigation";
 import SearchForm from "../components/SearchForm";
 import ShowData from "../components/ShowData";
@@ -8,8 +8,7 @@ import style from "../styles/home.module.css";
 import "../styles/global.css";
 
 const Home = () => {
-  const [isStarred, setIsStarred] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+
   const { featuredRepositories } = useAppContext();
 
   return (
@@ -23,14 +22,10 @@ const Home = () => {
             <h1>GitHub repositories finder</h1>
           </div>
           <SearchForm
-            setIsLoading={setIsLoading}
           />
         </article>
         <article className={style.reposContainer}>
           <ShowData
-            isStarred={isStarred}
-            setIsStarred={setIsStarred}
-            isLoading={isLoading}
           />
         </article>
       </section>

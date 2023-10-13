@@ -15,6 +15,7 @@ export function AppProvider({ children }) {
   const [foundData, setFoundData] = useState(false);
   const [search, setSearch] = useState("");
   const [featuredRepositories, setFeaturedRepositories] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const storedStarredRepos = JSON.parse(
@@ -24,7 +25,7 @@ export function AppProvider({ children }) {
   }, []);
 
   const handleDeleteSearch = () => {
-    setSearch('');
+    setSearch("");
   };
 
   const handleStarredRepo = (repo) => {
@@ -64,7 +65,9 @@ export function AppProvider({ children }) {
         setSearch,
         handleDeleteSearch,
         featuredRepositories,
-        setFeaturedRepositories
+        setFeaturedRepositories,
+        isLoading,
+        setIsLoading,
       }}
     >
       {children}

@@ -1,18 +1,15 @@
-import React, {useState} from "react";
-import style from "./repo.module.css";
+import React, { useState } from "react";
 import { useAppContext } from "../../../context/AppContext";
 import { FaArrowRightLong, FaStar, FaRegStar } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import style from "./repo.module.css";
 
 const Repo = () => {
-  const {
-    setRepoUrl,
-    repos,
-    setRepos,
-    starredRepos,
-    handleStarredRepo,
-  } = useAppContext();
+  const { setRepoUrl, repos, setRepos, starredRepos, handleStarredRepo } =
+    useAppContext();
   const [selectDefault, setSelectDefault] = useState(true);
+
+  /* Order repos */
 
   const highToLow = () => {
     const highToLowRepos = [...repos];
@@ -28,7 +25,7 @@ const Repo = () => {
 
   const orderReposStars = (e) => {
     const select = e.target.value;
-    setSelectDefault(false)
+    setSelectDefault(false);
 
     if (select === "highToLow") {
       highToLow();
