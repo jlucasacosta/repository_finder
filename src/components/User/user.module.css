@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.container button { 
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #777777;
+}
+
+.container button:hover {
+    color: #2f2f2f;
+}
+
+.container input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #777777;
+    outline: none;
+}

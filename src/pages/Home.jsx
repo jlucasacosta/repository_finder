@@ -8,11 +8,11 @@ import style from "../styles/home.module.css";
 import "../styles/global.css";
 
 const Home = () => {
-
   const { featuredRepositories } = useAppContext();
 
   return (
     <main className={style.homeContainer}>
+
       <section className={style.homeContent}>
         <nav>
           <Navigation />
@@ -21,17 +21,15 @@ const Home = () => {
           <div className={style.title}>
             <h1>GitHub repositories finder</h1>
           </div>
-          <SearchForm
-          />
+          <SearchForm />
         </article>
         <article className={style.reposContainer}>
-          <ShowData
-          />
+          <ShowData />
         </article>
       </section>
       <footer>
         {featuredRepositories && (
-          <div  className={style.homeFeaturedRepositories}>
+          <div className={style.homeFeaturedRepositories}>
             <h2 className={style.homeFeaturedRepositoriesTitle}>
               Featured repositories
             </h2>

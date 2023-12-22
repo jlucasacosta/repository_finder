@@ -11,6 +11,7 @@ const ShowData = () => {
     search,
     isLoading,
     featuredRepositories,
+    historial,
   } = useAppContext();
 
   useEffect(() => {

@@ -1,62 +1,62 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppContext } from "../../../context/AppContext";
 import { FaArrowRightLong, FaStar, FaRegStar } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import style from "./repo.module.css";
 
 const Repo = () => {
-  const { setRepoUrl, repos, setRepos, starredRepos, handleStarredRepo } =
+  const { setRepoUrl, repos, setRepos, starredRepos } =
     useAppContext();
-  const [selectDefault, setSelectDefault] = useState(true);
+  const [isStarred, setIsStarred] = useState({});
 
-  /* Order repos */
+  const handleStarRepo = async (repo) => {
+    try {
+      const response = await fetch(`http://localhost:4000/starred/${repo.id}`, {
+        method: "POST",
+      });
 
-  const highToLow = () => {
-    const highToLowRepos = [...repos];
-    highToLowRepos.sort((a, b) => b.stargazers_count - a.stargazers_count);
-    setRepos(highToLowRepos);
-  };
-
-  const lowToHigh = () => {
-    const lowToHighRepos = [...repos];
-    lowToHighRepos.sort((a, b) => a.stargazers_count - b.stargazers_count);
-    setRepos(lowToHighRepos);
-  };
-
-  const orderReposStars = (e) => {
-    const select = e.target.value;
-    setSelectDefault(false);
-
-    if (select === "highToLow") {
-      highToLow();
-    } else if (select === "lowToHigh") {
-      lowToHigh();
+      if (response.ok) {
+        const updatedStarredRepos = await response.json();
+        setIsStarred((prev) => ({ ...prev, [repo.id]: true }));
+      } else {
+        console.error("Error al marcar el repositorio como favorito");
+      }
+    } catch (error) {
+      console.error("Error de red:", error);
     }
   };
 
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`http://localhost:4000/starred`);
+      const data = await response.json();
+      const starredMap = {};
+      data.repositorios.forEach((repo) => {
+        starredMap[repo.id] = true;
+      });
+      setIsStarred(starredMap);
+    } catch (error) {
+      console.error("Error al obtener datos:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [isStarred]);
+
   return (
     <div className={style.reposContainer}>
-      {repos.length > 1 ? (
-        <div className={style.ordenedRepos}>
-          <span>Ordened by stars: </span>
-          <select name="stars" onChange={orderReposStars}>
-            {selectDefault ? <option value="default">Default</option> : null}
-            <option value="highToLow">High to Low</option>
-            <option value="lowToHigh">Low to High</option>
-          </select>
-        </div>
-      ) : null}
       {repos.map((repo) => (
         <div key={repo.id} className={style.repoContainer}>
           <div className={style.repoContent}>
             <div className={style.repoInfoContainer}>
               <img
-                src={repo.owner.avatar_url}
-                alt={`Avatar of ${repo.owner.login}`}
+                src={repo.avatar_url}
+                alt={`Avatar of ${repo.login}`}
                 className={style.userImage}
               />
               <div className={style.repoInfo}>
-                <span>{repo.owner.login}</span>
+                <span>{repo.login}</span>
                 <h2>{repo.name}</h2>
                 <p>{repo.description}</p>
               </div>
@@ -70,7 +70,7 @@ const Repo = () => {
             <button
               className={`${style.button} ${style.buttonStar}`}
               onClick={() => {
-                handleStarredRepo(repo);
+                handleStarRepo(repo);
               }}
             >
               {starredRepos.some((r) => r.id === repo.id) ? (
@@ -80,7 +80,7 @@ const Repo = () => {
               )}
             </button>
             <Link
-              to={`/profile?name=${repo.owner.login}`}
+              to={`/profile?name=${repo.login}`}
               className={`${style.button} ${style.buttonLink}`}
               onClick={() => {
                 setRepoUrl(repo.url);
